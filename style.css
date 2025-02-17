@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Pixel font */
 
 /* Global styles */
 * {
@@ -29,50 +30,80 @@ body {
 }
 
 .profile-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
   margin-bottom: 4rem;
+  list-style-type: none; /* Removes the dots */
 }
 
-/* changes i made */
-
 .profile-item {
-  overflow: hidden;
-  border-radius: 15px;
-  transition: all 0.3s ease-in;
-  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .profile-item:hover {
-  box-shadow: 0 0 0 2px #fff;
+  border: 3px solid var(--color-white);
+}
+
+.profile-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF; /* Set the label text color to white */
+  font-size: 18px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .profile-item:hover .profile-img {
   transform: scale(1.1);
 }
 
-.profile-item:active .profile-img {
-  border: 3px solid #fff;
+/* Responsive Design */
+@media (max-width: 900px) {
+  .profile-list {
+    flex-wrap: wrap;
+    row-gap: 90px;
+    padding-bottom: 110px;
+  }
+  
+  .profile-item {
+    margin-top: 3rem;
+  }
 }
 
-.profile-link {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  align-items: center;
-  text-decoration: none;
-  color: #e5e5e5;
-  font-family: inherit;
-  font-size: 2rem;
-  transition: color 0.3s ease;
-}
+@media (max-width: 480px) {
+  .profile-list {
+    gap: 15px;
+  }
 
-.profile-img {
-  width: 100%;
-  border: 3px solid transparent;
-  border-radius: 15px;
-  transition: border 0.3s ease, transform 0.3s ease;
+  .profile-item {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-link {
+    font-size: 16px;
+  }
 }
 
 .btn {
@@ -108,6 +139,18 @@ body {
     font-size: 1.8rem;
     padding: 1.2rem 1.6rem;
   }
+
+  .last-profile {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 999;
+  }
 }
 
 @media (max-width: 480px) {
@@ -130,67 +173,39 @@ body {
   }
 }
 
-/* Ticker Styles */
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
+/* Pixelated Digital Ticker */
 .ticker-wrap {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   overflow: hidden;
-  height: 10rem;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 0;
-  margin: 0;
+  height: 50px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
   box-sizing: border-box;
   z-index: 999;
 }
 
 .ticker {
   display: inline-block;
-  height: 100%;
-  line-height: 10rem;
   white-space: nowrap;
   padding-right: 100%;
-  box-sizing: content-box;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-name: ticker;
-  animation-name: ticker;
-  -webkit-animation-duration: 50s; /* Adjust duration for a smoother loop */
-  animation-duration: 50s;
-  font-family: 'Merriweather', serif; /* Old-style font */
-}
-
-.ticker__item {
-  display: inline-block;
-  padding: 0 2rem;
-  font-size: 2rem;
-  color: white;
+  font-family: 'Press Start 2P', cursive; /* Pixelated font */
+  font-size: 14px;
+  color: #ffffff; /* White text */
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff; /* White glowing effect */
+  animation: ticker 20s linear infinite;
 }
 
 
-
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
