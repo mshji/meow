@@ -1,66 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>meh</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("dcVn_9a8Q0kZW-4pM"); 
-        })();
-    </script>
-    <style>
-        body {
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container img {
-            display: block;
-            width: 150px; 
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-        }
-        .container img:hover {
-            transform: scale(1.1);
-        }
-    </style>
-    <script>
-        function playSound() {
-            let audio = document.getElementById("catSound");
-            audio.play();
-            sendEmail();
-        }
-        
-        function sendEmail() {
-            const templateParams = {
-                to_email: "ryoukitenkai21@gmail.com",  
-                message: "The cat GIF was clicked!"
-            };
-            
-            emailjs.send("service_re1w5pb", "template_9jzpajw", templateParams)
-                .then(function(response) {
-                    console.log("SUCCESS!", response);
-                }, function(error) {
-                    console.error("FAILED...", error);
-                });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>meh</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <audio id="catSound" src="your-audio-file.mp3"></audio>
-    <div class="container">
-        <img src="https://media.giphy.com/media/5zmYqvcVvEwtdHhFjG/giphy.gif" alt="Waiting Cat GIF" onclick="playSound()">
-    </div>
+<div class="container">
+  <div class="profile-container">
+    <ul class="profile-list">
+      <li class="profile-item">
+        <a href="https://mshji.github.io/miming/" class="profile-link">
+          <img class="profile-img" src="cattt.gif" alt="profile photo"/><br>
+          Ming
+        </a>
+      </li>
+      <li class="profile-item">
+        <a href="https://mshji.github.io/2lips/" class="profile-link">
+          <img class="profile-img" src="flwr.gif" alt="profile photo"/><br>
+          Tulips
+        </a>
+      </li>
+      <li class="profile-item">
+        <a href="https://mshji.github.io/iwm/" class="profile-link">
+          <img class="profile-img" src="blooms.gif" alt="profile photo"/><br>
+          Happy Women's Day!
+        </a>
+      </li>
+      <li class="profile-item">
+        <a href="#" class="profile-link">
+          <img class="profile-img" src="construction.jpg" alt="profile photo"/><br>
+          🚧
+        </a>
+      </li>
+      <li class="profile-item">
+        <a href="#" class="profile-link">
+          <img class="profile-img" src="construction.jpg" alt="profile photo"/><br>
+          🚧
+        </a>
+      </li>      
+    </ul><br><br><br>
+   <!-- <button class="btn">Box</button> -->
+  </div>
+</div>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    ................................................................................
+  </div>
+</div>
+
+
+
+
+
 </body>
 </html>
